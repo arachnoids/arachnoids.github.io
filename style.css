@@ -174,7 +174,7 @@ main h2 {
 }
 
 /* ---------- About ---------- */
-#about .eyebrow {
+main .eyebrow {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -185,7 +185,7 @@ main h2 {
   color: var(--muted);
 }
 
-#about .eyebrow::after {
+main .eyebrow::after {
   content: "";
   flex: 1;
   height: 2px;
@@ -272,68 +272,148 @@ main h2 {
 }
 
 /* ---------- Projects ---------- */
-#projects {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
+#projects { counter-reset: project; }
 
-#projects article {
-  padding: clamp(1.25rem, 4vw, 2rem);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
-}
+#projects h2 { margin-bottom: 0.75rem; }
 
-#projects article:hover {
-  border-color: var(--accent);
-  background: var(--surface);
-  transform: translateY(-3px);
-}
-
-#projects article h3 {
-  font-size: clamp(1.35rem, 3vw, 1.75rem);
-  font-weight: 650;
-  letter-spacing: -0.02em;
-}
-
-#projects article h3 + p {
-  margin-top: 0.6rem;
+#projects .intro {
+  max-width: 52ch;
+  margin-bottom: clamp(3.5rem, 8vw, 5.5rem);
   color: var(--muted);
 }
 
-#projects article ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.1rem;
-  margin-top: 1.1rem;
-  font-size: 0.9rem;
-  color: var(--accent);
+#projects article {
+  counter-increment: project;
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
 }
 
-#projects article ul + p {
-  margin-top: 1rem;
-  font-size: 0.95rem;
+#projects article + article { margin-top: clamp(4rem, 9vw, 6.5rem); }
+
+/* baris genap: gambar pindah ke kanan */
+#projects article:nth-of-type(even) { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+#projects article:nth-of-type(even) figure { order: 2; }
+
+/* Screenshot */
+#projects figure img,
+#projects figure div {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 8px 8px 0 var(--accent-dim);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#projects figure img { object-fit: cover; }
+
+#projects figure div {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border-style: dashed;
+  color: var(--dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+#projects article:hover figure img,
+#projects article:hover figure div {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0 var(--accent-dim);
+}
+
+/* Teks (elemen-elemen di dalam <div> sebelah gambar) */
+#projects article > div > p:first-child {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
   color: var(--dim);
 }
 
-#projects article a {
+#projects article > div > p:first-child::before {
+  content: counter(project, decimal-leading-zero) " / ";
+}
+
+#projects h3 {
+  margin-top: 0.4rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+#projects h3 + p {
+  margin-top: 0.6rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+#projects h3 + p + p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Badge opsional (mis. "Winner — ...") */
+#projects h3 + p + p + p {
   display: inline-block;
-  margin-top: 1.25rem;
-  margin-right: 1.5rem;
-  border-bottom: 1px solid var(--border);
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-#projects article a:hover {
+  margin-top: 1rem;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: var(--accent);
-  border-color: var(--accent);
 }
 
-#projects article ul + p + p {
+/* Tech stack */
+#projects article ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-top: 1.25rem;
+}
+
+#projects article li {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Link / tombol */
+#projects ul + p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 1.5rem;
+}
+
+#projects ul + p a {
+  padding: 0.5rem 1.15rem;
+  border: 1.5px solid var(--text);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 3px 3px 0 var(--accent-dim);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+#projects ul + p a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+#projects ul + p span {
   font-size: 0.9rem;
   font-style: italic;
+  color: var(--dim);
 }
 
 /* ---------- Experience & Education ---------- */
@@ -425,6 +505,10 @@ footer {
 
   .about-body { grid-template-columns: 1fr; }
   #photo { width: min(100%, 320px); }
+
+  #projects article,
+  #projects article:nth-of-type(even) { grid-template-columns: 1fr; }
+  #projects article:nth-of-type(even) figure { order: 0; }
 
   #experience > div {
     grid-template-columns: 1fr;
