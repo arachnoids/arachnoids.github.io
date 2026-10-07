@@ -1,19 +1,234 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Dinara Al Adhawiyyah</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EDIT: judul tab browser & deskripsi (muncul di Google) -->
+  <title>Maryam Dinara | Computer Science Student</title>
+  <meta name="description" content="Portfolio of Maryam Dinara, Computer Science student interested in software development, UI/UX, and cloud computing.">
+
+  <!-- File ini belum ada, nanti dibuat di langkah berikutnya -->
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <h1>Dinara Al Adhawiyyah</h1>
-  <p>Hi! I'm currently a Computer Science student in BINUS University, particularly interested in Cloud Technology and Design.</p>
+  <!-- ============ NAVIGATION ============ -->
+  <header>
+    <nav>
+      <a href="#home">Maryam</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <h2>Projects</h2>
-  <p>Coming soon.</p>
+  <main>
 
-  <h2>Contact</h2>
-  <p>Email: dinaraburhani@gmail.com</p>
+    <!-- ============ 1. HERO ============ -->
+    <section id="home">
+      <!-- EDIT: ganti nama panggilan / nama lengkap sesukamu -->
+      <h1>Maryam Dinara</h1>
+
+      <!-- EDIT: 1 kalimat posisi -->
+      <p>Computer Science student interested in software development, UI/UX, and cloud computing.</p>
+
+      <!-- EDIT: angka statistik. Tambah/hapus <li> kalau perlu -->
+      <ul>
+        <li>3.23 GPA</li>
+        <li>2 Projects</li>
+        <li>1 Research Paper</li>
+      </ul>
+
+      <!-- FOTO: taruh file fotomu di folder yang sama (mis. photo.jpg),
+           lalu hapus <div> placeholder di bawah dan aktifkan <img> ini.
+           <img src="photo.jpg" alt="Foto Maryam Dinara" width="400" height="400">
+      -->
+      <figure id="photo">
+        <div>[ Photo placeholder ]</div>
+      </figure>
+    </section>
+
+    <!-- ============ 2. ABOUT ============ -->
+    <section id="about">
+      <h2>About</h2>
+      <!-- EDIT: 2-3 paragraf pendek -->
+      <p>
+        I'm a fifth-semester Computer Science student at Bina Nusantara University, Semarang.
+        I enjoy building software and designing interfaces that are simple to use.
+      </p>
+      <p>
+        I'm currently studying software development, UI/UX design, and cloud computing with Google Cloud Platform.
+        I also did research on Computer Vision, comparing lightweight CNN architectures for coffee bean appearance assessment.
+      </p>
+      <p>
+        Outside class, I'm active in the Informatics Student Association and volunteered at Google DevFest 2025 Semarang.
+        I'm looking for an internship in software development or UI/UX.
+      </p>
+    </section>
+
+    <!-- ============ 3. SKILLS ============ -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <!-- EDIT: isi hanya skill yang benar-benar kamu pakai. Tambah/hapus <li> sesukamu -->
+
+      <div>
+        <h3>Languages</h3>
+        <ul>
+          <li>C</li>
+          <li>Java</li>
+          <li>Python</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Frameworks</h3>
+        <ul>
+          <li>Laravel</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Tools</h3>
+        <ul>
+          <li>Git</li>
+          <li>Google Cloud Platform</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+
+      <!-- Opsional: hapus blok ini kalau tidak mau -->
+      <div>
+        <h3>Soft skills</h3>
+        <ul>
+          <li>Communication</li>
+          <li>Teamwork</li>
+          <li>Mentoring</li>
+          <li>Event management</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 4. PROJECTS ============ -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- Tiap <article> = 1 card project. Salin-tempel blok ini untuk menambah project.
+           Untuk project yang belum dipublikasikan, hapus link GitHub atau ganti dengan teks "Private repository". -->
+
+      <!-- PROJECT 1 -->
+      <article>
+        <h3>Project Title 1</h3>
+        <p>One or two sentences about what this project does and who it helps.</p>
+        <ul>
+          <li>Laravel</li>
+          <li>SQL</li>
+        </ul>
+        <p>My contribution: describe what you built or decided.</p>
+        <a href="https://github.com/your-username/project-1">GitHub</a>
+        <!-- Opsional: <a href="https://demo-url.com">Live demo</a> -->
+      </article>
+
+      <!-- PROJECT 2 -->
+      <article>
+        <h3>Project Title 2</h3>
+        <p>One or two sentences about what this project does and who it helps.</p>
+        <ul>
+          <li>Python</li>
+          <li>Computer Vision</li>
+        </ul>
+        <p>My contribution: describe what you built or decided.</p>
+        <a href="https://github.com/your-username/project-2">GitHub</a>
+      </article>
+
+      <!-- PROJECT 3 (contoh project yang belum publik) -->
+      <article>
+        <h3>Project Title 3</h3>
+        <p>One or two sentences about this unpublished project.</p>
+        <ul>
+          <li>Figma</li>
+        </ul>
+        <p>My contribution: describe what you built or decided.</p>
+        <p>Private repository</p>
+      </article>
+    </section>
+
+    <!-- ============ 5. EXPERIENCE & EDUCATION ============ -->
+    <section id="experience">
+      <h2>Experience &amp; Education</h2>
+
+      <div>
+        <h3>Education</h3>
+        <ul>
+          <li>
+            <h4>Bina Nusantara University, Semarang</h4>
+            <p>B.Sc. Computer Science, GPA 3.23 / 4.00</p>
+            <p>Aug 2024 – Aug 2028 (expected)</p>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Research</h3>
+        <ul>
+          <li>
+            <h4>Comparative Study of Lightweight CNN Architectures for Coffee Bean Appearance Assessment</h4>
+            <p>Research paper in Computer Vision.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Organization &amp; volunteering</h3>
+        <ul>
+          <li>
+            <h4>Informatics Student Association, Semarang</h4>
+            <p>Committee member, Responsi Division. Jan 2025 – Present</p>
+            <p>Tutored students before exams, mentored new members, and managed event documentation.</p>
+          </li>
+          <li>
+            <h4>Google DevFest 2025 Semarang</h4>
+            <p>Event volunteer. Nov 2025</p>
+            <p>Handled ticketing and registration for 400+ attendees.</p>
+          </li>
+          <li>
+            <h4>SMAN 01 Sukoharjo Choir</h4>
+            <p>Secretary 1. Oct 2022 – Oct 2023</p>
+            <p>Managed administration and proposals, and served as MC.</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- EDIT: tambah blok baru di sini untuk Internship / Competition / Certification kalau ada -->
+    </section>
+
+    <!-- ============ 6. CONTACT ============ -->
+    <section id="contact">
+      <h2>Let's build something</h2>
+      <p>Open to internships, freelance projects, and research collaboration.</p>
+
+      <!-- EDIT: ganti dengan email aslimu -->
+      <a href="mailto:your-email@example.com">your-email@example.com</a>
+
+      <ul>
+        <!-- EDIT: ganti dengan link aslimu -->
+        <li><a href="https://github.com/your-username">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/your-username">LinkedIn</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <!-- EDIT: tahun & nama -->
+    <p>&copy; 2026 Maryam Dinara</p>
+  </footer>
 
 </body>
 </html>
