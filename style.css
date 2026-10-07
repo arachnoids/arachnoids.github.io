@@ -1,0 +1,382 @@
+/* =========================================================
+   style.css — dark, minimal portfolio
+   Ubah warna & ukuran di blok :root di bawah ini.
+   ========================================================= */
+
+:root {
+  --bg: #0b0b0c;
+  --surface: #131315;
+  --border: #26262a;
+  --text: #f2f2f0;
+  --muted: #a0a0a6;
+  --dim: #6d6d73;
+  --accent: #8ab4ff;            /* EDIT: satu-satunya warna accent */
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --width: 860px;
+  --gutter: clamp(1.25rem, 5vw, 2rem);
+  --nav-h: 4rem;
+}
+
+/* ---------- Reset & dasar ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p, ul, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--accent); color: var(--bg); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---------- Navbar ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11, 11, 12, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  max-width: var(--width);
+  height: var(--nav-h);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav > a {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+nav ul {
+  display: flex;
+  gap: clamp(0.9rem, 3vw, 1.75rem);
+}
+
+nav ul a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+nav ul a:hover { color: var(--text); }
+
+/* ---------- Layout utama ---------- */
+main {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+main > section {
+  padding-block: clamp(4.5rem, 12vw, 9rem);
+}
+
+main h2 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* ---------- Hero ---------- */
+#home {
+  min-height: calc(100vh - var(--nav-h));
+  min-height: calc(100svh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 4rem;
+}
+
+#home h1 {
+  font-size: clamp(3rem, 12vw, 7rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  overflow-wrap: break-word;
+}
+
+#home > p {
+  margin-top: 1.75rem;
+  max-width: 36ch;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+#home > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+/* Foto: placeholder sekarang, <img> nanti */
+#photo {
+  margin-top: 3rem;
+  width: min(100%, 220px);
+}
+
+#photo img,
+#photo div {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 16px;
+}
+
+#photo img { object-fit: cover; }
+
+#photo div {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  color: var(--dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ---------- About ---------- */
+#about p {
+  max-width: 62ch;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+#about p + p { margin-top: 1.5rem; }
+
+/* ---------- Skills ---------- */
+#skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 2rem;
+}
+
+#skills h2 { grid-column: 1 / -1; margin-bottom: 0; }
+
+#skills h3 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dim);
+}
+
+#skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#skills li {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* ---------- Projects ---------- */
+#projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+#projects article {
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+#projects article:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+  transform: translateY(-3px);
+}
+
+#projects article h3 {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+#projects article h3 + p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+}
+
+#projects article ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin-top: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+#projects article ul + p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--dim);
+}
+
+#projects article a {
+  display: inline-block;
+  margin-top: 1.25rem;
+  margin-right: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+#projects article a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+#projects article ul + p + p {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ---------- Experience & Education ---------- */
+#experience > div {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1rem 2rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+#experience h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dim);
+}
+
+#experience li + li { margin-top: 2rem; }
+
+#experience h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+#experience li p {
+  margin-top: 0.35rem;
+  color: var(--muted);
+}
+
+#experience li p + p { color: var(--dim); font-size: 0.95rem; }
+
+/* ---------- Contact ---------- */
+#contact h2 {
+  font-size: clamp(3rem, 11vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  margin-bottom: 1.5rem;
+}
+
+#contact > p {
+  max-width: 40ch;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  color: var(--muted);
+}
+
+#contact > a {
+  display: inline-block;
+  margin-top: 2.5rem;
+  font-size: clamp(1.25rem, 4.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  overflow-wrap: anywhere;
+  transition: opacity 0.2s ease;
+}
+
+#contact > a:hover { opacity: 0.75; }
+
+#contact ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin-top: 2rem;
+}
+
+#contact ul a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+#contact ul a:hover { color: var(--text); }
+
+/* ---------- Footer ---------- */
+footer {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 3rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--dim);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  #skills { grid-template-columns: 1fr; }
+
+  #experience > div {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav > a { display: none; }     /* beri ruang untuk 5 link menu */
+  nav { justify-content: center; }
+}
