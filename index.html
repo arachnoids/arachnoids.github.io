@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- EDIT: judul tab browser & deskripsi (muncul di Google) -->
-  <title>Dinara Burhani | Computer Science Student</title>
+  <title>Dinara Burhani</title>
   <meta name="description" content="Portfolio of Dinara Burhani, Computer Science student interested in software development, UI/UX, and cloud computing.">
 
   <!-- File ini belum ada, nanti dibuat di langkah berikutnya -->
@@ -216,48 +216,109 @@
 
     <!-- ============ 5. EXPERIENCE & EDUCATION ============ -->
     <section id="experience">
-      <h2>Experience &amp; Education</h2>
-
-      <div>
-        <h3>Education</h3>
-        <ul>
-          <li>
-            <h4>Bina Nusantara University, Semarang</h4>
-            <p>B.Sc. Computer Science, GPA 3.23 / 4.00</p>
-            <p>Aug 2024 – Aug 2028 (expected)</p>
-          </li>
-        </ul>
+      <!-- Kolom kiri: menempel saat scroll, daftarnya dibuat otomatis oleh script.js dari kartu di kanan -->
+      <div class="exp-nav">
+        <p class="eyebrow">Experience</p>
+        <h2>Where I've been</h2>
+        <ul id="exp-menu"></ul>
       </div>
 
-      <div>
-        <h3>Research</h3>
+      <!-- Kolom kanan: kartu-kartu. Salin satu <article> untuk menambah (Internship, Competition, Certification, dll).
+           data-role = teks kecil di bawah judul pada daftar kiri. id harus unik. -->
+      <div class="exp-list">
+      <!-- ===== Informatics Student Association ===== -->
+      <article id="exp-himti" data-role="Responsi Division &middot; 2025">
+        <h3>Informatics Student Association</h3>
+        <p>Jan 2025 &ndash; Present &middot; Semarang</p>
+        <p>Committee member in the Responsi Division.</p>
         <ul>
-          <li>
-            <h4>Comparative Study of Lightweight CNN Architectures for Coffee Bean Appearance Assessment</h4>
-            <p>Research paper in Computer Vision.</p>
-          </li>
+          <li>Tutored students with exam-preparation sessions for course material.</li>
+          <li>Wrote the script and storyline for the theater performance at the new-student Welcoming Party.</li>
+          <li>Mentored prospective new members on leadership and discipline at LDKCP.</li>
+          <li>Managed visual documentation and media publication for inter-organization benchmarking visits.</li>
         </ul>
-      </div>
+        <ul class="tags">
+          <li>Mentoring</li>
+          <li>Leadership</li>
+          <li>Documentation</li>
+        </ul>
+      </article>
 
-      <div>
-        <h3>Organization &amp; volunteering</h3>
+      <!-- ===== Google DevFest 2025 Semarang ===== -->
+      <article id="exp-devfest" data-role="Event Volunteer &middot; 2025">
+        <h3>Google DevFest 2025 Semarang</h3>
+        <p>Nov 2025 &middot; Semarang</p>
+        <p>Volunteer at a technology conference for 400+ attendees.</p>
         <ul>
-          <li>
-            <h4>Informatics Student Association, Semarang</h4>
-            <p>Committee member, Responsi Division. Jan 2025 – Present</p>
-            <p>Tutored students before exams, mentored new members, and managed event documentation.</p>
-          </li>
-          <li>
-            <h4>Google DevFest 2025 Semarang</h4>
-            <p>Event volunteer. Nov 2025</p>
-            <p>Handled ticketing and registration for 400+ attendees.</p>
-          </li>
-          <li>
-            <h4>SMAN 01 Sukoharjo Choir</h4>
-            <p>Secretary 1. Oct 2022 – Oct 2023</p>
-            <p>Managed administration and proposals, and served as MC.</p>
-          </li>
+          <li>Managed ticketing, participant registration, and attendance verification.</li>
+          <li>Coordinated photo documentation and supported field operations.</li>
         </ul>
+        <ul class="tags">
+          <li>Event management</li>
+          <li>Teamwork</li>
+        </ul>
+      </article>
+
+      <!-- ===== SMAN 01 Sukoharjo Choir ===== -->
+      <article id="exp-choir" data-role="Secretary 1 &middot; 2022">
+        <h3>SMAN 01 Sukoharjo Choir</h3>
+        <p>Oct 2022 &ndash; Oct 2023 &middot; Sukoharjo</p>
+        <p>Secretary 1 of the school choir.</p>
+        <ul>
+          <li>Managed organization administration, activity proposals, and official document archives.</li>
+          <li>Served as Secretary and Master of Ceremonies at the new-member reorganization and choir seminar.</li>
+        </ul>
+        <ul class="tags">
+          <li>Administration</li>
+          <li>MC</li>
+        </ul>
+      </article>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION & WRITING ============ -->
+    <section id="more">
+      <p class="eyebrow">The rest of it</p>
+      <h2>Education &amp; writing</h2>
+
+      <div class="rest-grid">
+        <!-- Salin satu <article> untuk menambah kartu baru (mis. Awards, Certification). Kartu otomatis menyesuaikan lebar. -->
+        <article>
+          <h3>Education</h3>
+          <ul>
+            <li>
+              <h4>B.Sc. Computer Science</h4>
+              <p>Bina Nusantara University, Semarang</p>
+              <p>GPA 3.23 / 4.00 &middot; Aug 2024 &ndash; Aug 2028 (expected)</p>
+            </li>
+            <!-- EDIT: tambah <li> lain kalau ada -->
+          </ul>
+        </article>
+
+        <article>
+          <h3>Writing</h3>
+          <ul>
+            <li>
+              <!-- OPTIONAL: kalau papermu punya link, bungkus judul dengan <a href="https://...">...</a> -->
+              <h4>Comparative Study of Lightweight CNN Architectures for Coffee Bean Appearance Assessment</h4>
+              <p>Research paper &middot; Computer Vision</p>
+              <p>[EDIT: year, and where it was published or submitted]</p>
+            </li>
+          </ul>
+        </article>
+
+        <!-- OPTIONAL: kartu Awards / Certification
+        <article>
+          <h3>Awards</h3>
+          <ul>
+            <li>
+              <h4>Award or certificate name</h4>
+              <p>Organizer or competition</p>
+              <p>Year</p>
+            </li>
+          </ul>
+        </article>
+        -->
       </div>
 
       <!-- EDIT: tambah blok baru di sini untuk Internship / Competition / Certification kalau ada -->
