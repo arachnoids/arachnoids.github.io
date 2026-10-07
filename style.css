@@ -146,32 +146,157 @@ main h2 {
   padding-block: 4rem;
 }
 
+#home .eyebrow::after { flex: 0 1 14rem; }
+
 #home h1 {
-  font-size: clamp(2.75rem, 11vw, 6.25rem);
+  margin-top: 0.5rem;
+  font-size: clamp(3.25rem, 14vw, 8rem);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.05em;
-  overflow-wrap: break-word;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
 }
 
-#home > p {
-  margin-top: 1.75rem;
-  max-width: 36ch;
-  font-size: clamp(1.05rem, 2.3vw, 1.35rem);
-  line-height: 1.4;
+#home .tagline {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 28ch;
+  font-size: clamp(1.25rem, 3.1vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+#home .tagline strong { font-weight: 700; }
+
+#home .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+/* Tombol "See my projects" */
+#home .cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.45rem 0.4rem 1.25rem;
+  border: 1.5px solid var(--text);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  box-shadow: 4px 4px 0 var(--accent-dim);
+  transition: background-color 0.2s ease;
+}
+
+#home .cta:hover { background: var(--surface); }
+
+#home .cta span {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+#home .cta:hover span { transform: translateX(3px); }
+
+/* ---------------------------------------------------------
+   OPSIONAL (dinonaktifkan): pill "fun version".
+   Hapus tanda komentar blok ini + HTML-nya di index.html.
+
+#home .fun-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  border: 1px dashed var(--dim);
+  border-radius: 999px;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
-#home > ul {
+#home .fun-link span {
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   OPSIONAL (dinonaktifkan): baris statistik di hero.
+   Hapus tanda komentar blok ini + HTML-nya di index.html.
+
+#home .stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 2.25rem;
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
+  gap: 1.5rem 3rem;
+  margin-top: 3rem;
+  padding-top: 1.75rem;
   border-top: 1px solid var(--border);
-  color: var(--text);
-  font-size: 1.05rem;
 }
+
+#home .stats strong {
+  display: block;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+#home .stats span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   OPSIONAL (dinonaktifkan): background kotak-kotak yang
+   bergeser ke kanan terus-menerus (murni CSS, tanpa gambar).
+   Hapus tanda komentar seluruh blok ini untuk mengaktifkan.
+
+body { overflow-x: clip; }
+
+#home { position: relative; isolation: isolate; }
+
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: grid-slide 12s linear infinite;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+@keyframes grid-slide {
+  to { background-position: 64px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #home::before { animation: none; }
+}
+   --------------------------------------------------------- */
 
 /* ---------- About ---------- */
 main .eyebrow {
