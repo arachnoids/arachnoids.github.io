@@ -1,17 +1,18 @@
 /* =========================================================
-   style.css — dark, minimal portfolio
+   style.css — minimal portfolio (light palette)
    Ubah warna & ukuran di blok :root di bawah ini.
    ========================================================= */
 
 :root {
-  --bg: #0b0b0c;
-  --surface: #131315;
-  --border: #26262a;
-  --text: #f2f2f0;
-  --muted: #a0a0a6;
-  --dim: #6d6d73;
-  --accent: #8ab4ff;            /* EDIT: satu-satunya warna accent */
-  --accent-dim: #2b3a5c;        /* bayangan foto */
+  --bg: #EDEDE8;                /* latar (Parchment) */
+  --surface: #F7F7F3;           /* latar kartu, sedikit lebih terang dari latar */
+  --border: #D3D1C8;            /* garis tipis */
+  --text: #4F032E;              /* teks utama (Crimson Violet) */
+  --muted: #6A3F58;             /* teks sekunder */
+  --dim: #7A5F6D;               /* teks paling redup (tanggal, label kecil) */
+  --accent: #5320C0;            /* EDIT: satu-satunya warna accent (Ultrasonic Blue) */
+  --accent-dim: #B3A0E8;        /* bayangan kartu & foto */
+  --accent-soft: #DED5F5;       /* latar item saat di-hover */
 
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --width: 900px;
@@ -63,7 +64,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(11, 11, 12, 0.8);
+  background: rgba(237, 237, 232, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -407,7 +408,7 @@ main .eyebrow::after {
 /* hover: item menyala */
 #skills li:hover {
   border-color: var(--accent);
-  background: var(--accent-dim);
+  background: var(--accent-soft);
   transform: translateY(-2px);
 }
 
