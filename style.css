@@ -5,7 +5,8 @@
 
 @font-face {
   font-family: "Geist Mono";
-  src: url("fonts/GeistMono-Variable.ttf") format("truetype");
+  src: url("fonts/GeistMono-VariableFont_wght.ttf") format("truetype"),
+       url("fonts/GeistMono-Variable.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -13,11 +14,12 @@
 
 :root {
   --bg: #EDEDE8;                /* latar (Parchment) */
+  --bg-alt: #E3E3DC;            /* latar section genap (selang-seling) */
   --surface: #F7F7F3;           /* latar kartu, sedikit lebih terang dari latar */
   --border: #D3D1C8;            /* garis tipis */
   --text: #4F032E;              /* teks utama (Crimson Violet) */
   --muted: #6A3F58;             /* teks sekunder */
-  --dim: #7A5F6D;               /* teks paling redup (tanggal, label kecil) */
+  --dim: #735868;               /* teks paling redup (tanggal, label kecil) */
   --accent: #5320C0;            /* EDIT: satu-satunya warna accent (Ultrasonic Blue) */
   --accent-dim: #B3A0E8;        /* bayangan kartu & foto */
   --accent-soft: #DED5F5;       /* latar item saat di-hover */
@@ -156,15 +158,20 @@ nav > a:last-child:hover {
 }
 
 /* ---------- Layout utama ---------- */
-main {
-  max-width: var(--width);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-}
+main { display: block; }
 
+/* Latar section memanjang penuh; isinya tetap rata tengah selebar --width */
 main > section {
   padding-block: clamp(4.5rem, 12vw, 9rem);
+  padding-inline: max(var(--gutter), calc((100% - var(--width)) / 2 + var(--gutter)));
+  background: var(--bg);
 }
+
+/* garis pembatas antar section */
+main > section + section { border-top: 1px solid var(--border); }
+
+/* section genap: warna latar berbeda */
+main > section:nth-of-type(even) { background: var(--bg-alt); }
 
 main h2 {
   font-size: clamp(2rem, 5.2vw, 3.1rem);
@@ -300,27 +307,21 @@ main h2 {
 }
    --------------------------------------------------------- */
 
-/* ---------------------------------------------------------
-   OPSIONAL (dinonaktifkan): background kotak-kotak yang
-   bergeser ke kanan terus-menerus (murni CSS, tanpa gambar).
-   Hapus tanda komentar seluruh blok ini untuk mengaktifkan.
-
-body { overflow-x: clip; }
-
+/* Background kotak-kotak yang bergeser ke kanan terus-menerus (murni CSS, tanpa gambar).
+   Mau dimatikan? Hapus blok ini sampai @media di bawahnya, atau bungkus dengan komentar. */
 #home { position: relative; isolation: isolate; }
 
 #home::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 100vw;
-  margin-left: -50vw;
+  inset: 0;
   z-index: -1;
   background-image:
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--text) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--text) 9%, transparent) 1px, transparent 1px);
   background-size: 64px 64px;
   animation: grid-slide 12s linear infinite;
   -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
@@ -334,7 +335,6 @@ body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   #home::before { animation: none; }
 }
-   --------------------------------------------------------- */
 
 /* ---------- About ---------- */
 main .eyebrow {
@@ -842,6 +842,7 @@ main .eyebrow::after {
 
 /* ---------- Footer ---------- */
 footer {
+  background: var(--bg-alt);
   border-top: 1px solid var(--border);
   font-size: 0.9rem;
   color: var(--muted);
