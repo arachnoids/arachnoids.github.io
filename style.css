@@ -323,7 +323,7 @@ main h2 {
     linear-gradient(color-mix(in srgb, var(--text) 9%, transparent) 1px, transparent 1px),
     linear-gradient(90deg, color-mix(in srgb, var(--text) 9%, transparent) 1px, transparent 1px);
   background-size: 64px 64px;
-  animation: grid-slide 12s linear infinite;
+  animation: grid-slide 4s linear infinite;
   -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
   mask-image: linear-gradient(to bottom, #000 55%, transparent);
 }
