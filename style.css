@@ -739,51 +739,97 @@ main .eyebrow::after {
   font-size: clamp(2.5rem, 10vw, 6rem);
   line-height: 0.95;
   letter-spacing: -0.045em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 #contact > p {
-  max-width: 40ch;
-  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  max-width: 44ch;
+  margin-top: 2rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
   color: var(--muted);
 }
 
-#contact > a {
+#contact .email {
   display: inline-block;
   margin-top: 2.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid var(--accent);
   font-size: clamp(1.25rem, 4.5vw, 2rem);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.02em;
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
   overflow-wrap: anywhere;
-  transition: opacity 0.2s ease;
-}
-
-#contact > a:hover { opacity: 0.75; }
-
-#contact ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-  margin-top: 2rem;
-}
-
-#contact ul a {
-  color: var(--muted);
   transition: color 0.2s ease;
 }
 
-#contact ul a:hover { color: var(--text); }
+#contact .email:hover { color: var(--accent); }
+
+#contact .socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.25rem;
+}
+
+#contact .socials a {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border: 1.5px solid var(--text);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  box-shadow: 3px 3px 0 var(--accent-dim);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+#contact .socials a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
 
 /* ---------- Footer ---------- */
 footer {
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+footer > div {
   max-width: var(--width);
   margin: 0 auto;
   padding: 2rem var(--gutter) 3rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.85rem;
-  color: var(--dim);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+
+/* ---------- Tombol kembali ke atas ---------- */
+.to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1.5px solid var(--text);
+  border-radius: 50%;
+  background: var(--bg);
+  font-size: 1.2rem;
+  box-shadow: 3px 3px 0 var(--accent-dim);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.to-top:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+@media (max-width: 640px) {
+  footer > div { padding-bottom: 5.5rem; }   /* beri ruang untuk tombol kembali ke atas */
 }
 
 /* ---------- Responsive ---------- */
