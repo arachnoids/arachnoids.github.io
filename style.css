@@ -39,6 +39,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Saat script.js aktif, scroll dihaluskan oleh JavaScript (lihat script.js) */
+html.smooth-js { scroll-behavior: auto; }
+
 body {
   margin: 0;
   background: var(--bg);
